@@ -1,9 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@keyframes changingColor{
+  from{background-color: red;}
+  to {background-color:blue}
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -35,27 +35,43 @@
   display: flex;
   flex-direction:row;
   color: rgb(0, 0, 0);
+  position:sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgb(230, 230, 230);
 }
 nav{
   /* background-color: #61dafb; */
   width: 100%;
+  align-items: center;
   display: flex;
   justify-content: space-between;
+  margin: 2px;
+  font-family:'Times New Roman', Times, serif;/* need some better fonts to represent the brand */
+}
+
+.leftPart{
+  display: flex;
+  /* background-color: brown; */
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
 }
 
 nav ul {
   /* background-color: red; */
   list-style: none;
   padding: 0;
+  margin: 8px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  gap: 20px;
+  gap: 60px;
 }
 
 nav a {
   /* background-color: #ffffff; */
-  color: rgb(0, 0, 0);
   text-decoration: none;
   position: relative;
 }
@@ -73,4 +89,31 @@ nav a::after{
 
 nav a:hover::after{
   width: 100%;
+}
+
+.nav-button{
+  background-color:darkgreen;
+  /* animation: changingColor 10s infinite; */
+  display: block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 0.5px solid rgb(98, 98, 98);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  color: white;
+  transition: 0.2s linear;
+}
+
+.nav-button:hover{
+  background-color: rgb(0, 150, 0);
+  cursor: pointer;
+  box-shadow: 0 6px 8px 4px rgba(0,0,0,0.5);
+  transition: 0.2s linear;
+}
+/* Override the spreading line effect for .nav-button links */
+.nav-button a::after {
+  width:0%;
+}
+
+.nav-button a:hover::after {
+  width:0%;
 }

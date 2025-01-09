@@ -1,0 +1,48 @@
+
+.introSection{
+    display:grid;
+    font-family: 'Times New Roman', Times, serif;
+    background-color:  #f9f9f9;
+    justify-content: center;
+    align-items: center;
+}
+
+.brandStatement{
+    font-style: italic;
+    background-color: #ffffff;
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+
+}
+.brandStatementArea{
+    display: flex;
+    width: 75%;
+    justify-self: center;
+    align-self: center;
+    background-color: red;
+}
+/* ================================================================= */
+.productPicArea{
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;   
+}
+
+.productPic{
+    height: 500px;
+    width:auto;
+}
+
+.followSocial{
+    background-color: red;
+    display: flex;    
+    transform: rotate(-90deg);
+    justify-content:flex-start;
+    align-items: flex-end;
+}
+.followSocialArea{
+    display: flex;
+    background-color: #ffffff;
+}
