@@ -1,0 +1,109 @@
+
+.brandIntroSection{
+    display:grid;
+    font-family: 'Times New Roman', Times, serif;
+    /* background-color:  #f9f9f9; */
+    justify-content: center;
+    align-items: center;
+}
+
+.statement{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #ffffff;
+}
+
+.brandStatement{
+    font-style: italic;
+    text-align: center;
+    text-shadow:-2px 2px 10px #ffbc70;
+}
+
+
+.brandStatementArea{
+    width: 75%;
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border:2px solid black; */
+}
+/* ================================================================= */
+.productPicArea{
+    display:flex;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;   
+}
+
+.productPic{
+    height: 500px;
+    width:auto;
+}
+
+.followSocial{
+    background-color: red;
+    /* display: absolute;     */
+    transform: rotate(-90deg);
+    justify-self:flex-start;
+    align-self: flex-end;
+}
+.followSocialArea{
+    /* position: absolute; */
+    background-color: #ffffff;
+    justify-self: flex-start;
+    align-self: flex-end;
+    border: 1px solid #ddd;
+}
+/* =========================================================== */
+
+.centerButton{
+    justify-self: center;
+    align-self: center;
+}
+.coffeeStatement{
+    text-align: justify;
+    
+}
+/* ==========================Review Section========================= */
+.reviewSec{
+    padding: 10px;
+    background-color: rgb(248, 248, 248);
+    display: flex;
+    justify-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: 1px solid #ffffff;
+    border-radius: 8px;   
+    margin: 10px 29px 10px;
+}
+
+.reviewSecIntro{
+    justify-items: center;
+}
+
+.reviewButton{
+    margin: 4px;    
+}
+
+/* contact section */
+.contactSec{
+    display:flex;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(248, 248, 248);
+    padding: 4px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contactTitle{
+    margin: 10px 29px 10px;
+}
+
+.mapImage{
+    /* background-color: red;
+    border-radius: 8px;  */
+}
+
+

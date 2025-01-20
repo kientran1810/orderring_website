@@ -1,12 +1,9 @@
 import {BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
 import {useState} from 'react';
 import './App.css';
-import AboutUs from './AboutUs.js';
+import AboutUs from './About_Us_Page/AboutUs.js';
+import Order from './Order_Page/Order.js';
 
-
-function Order(){
-  return <h2>Order</h2>;
-}
 
 function Settings(){
   return <h2>Settings</h2>;
@@ -22,7 +19,7 @@ function App() {
     <>
       <Router>
         <div className="App">
-          <header className="App-header">
+          <header className="App-header section-primary">
             <nav>
               <div className='leftPart'>
                 <img src="/aha_logo/aha_logo_cafe.png" alt="Logo" className="App-logo m-2"/>
@@ -32,7 +29,7 @@ function App() {
                 <li><Link to="/about-us">About Us</Link></li>
                 <li><Link to="/order">Order</Link></li>
                 <li><Link to="/settings">Settings</Link></li>
-                <li className="nav-button"><Link to="/contact-us">Contact Us</Link></li>
+                <li className="button-primary "><Link to="/contact-us">Contact Us</Link></li>
               </ul>
             </nav>
           </header>

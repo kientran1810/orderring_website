@@ -1,0 +1,17 @@
+.reviewBox{
+    position: relative;
+    display: flex;
+    height: 400px;
+    width: 400px;
+    padding: 4px;
+    margin: 4px;
+    border: 2px solid rgb(219, 219, 219);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: justify;
+    align-items: stretch;
+    flex-direction: column;
+}
+.reviewRatings{
+    color:yellow;
+}

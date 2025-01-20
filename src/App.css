@@ -2,8 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 @keyframes changingColor{
-  from{background-color: red;}
-  to {background-color:blue}
+  from{background-color: darkgreen}
+  to {background-color:rgb(0, 57, 0)}
+}
+*{
+  font-family: 'Times New Roman', Times, serif;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -40,6 +43,14 @@
   z-index: 1000;
   border-bottom: 1px solid rgb(230, 230, 230);
 }
+
+.section-primary{
+  border: 1px solid rgba(0,0,0,0.1);
+  /* border-radius: 8px; */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  height: 105px;
+}
+
 nav{
   /* background-color: #61dafb; */
   width: 100%;
@@ -91,29 +102,72 @@ nav a:hover::after{
   width: 100%;
 }
 
-.nav-button{
+.button-primary{
   background-color:darkgreen;
-  /* animation: changingColor 10s infinite; */
+  animation: changingColor 5s infinite;
   display: block;
-  padding: 10px 20px;
-  border-radius: 8px;
+  padding: 10px 15px;
+  border-radius: 6px;
   border: 0.5px solid rgb(98, 98, 98);
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   color: white;
   transition: 0.2s linear;
+  width: 130px;
+  text-align: center;
+  transition: 0.2s linear;
 }
 
-.nav-button:hover{
+.button-primary:hover{
   background-color: rgb(0, 150, 0);
   cursor: pointer;
   box-shadow: 0 6px 8px 4px rgba(0,0,0,0.5);
   transition: 0.2s linear;
 }
 /* Override the spreading line effect for .nav-button links */
-.nav-button a::after {
+.button-primary a::after {
   width:0%;
 }
 
-.nav-button a:hover::after {
+.button-primary a:hover::after {
   width:0%;
+}
+
+.button-secondary{
+  background-color: black;
+  color: white;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 0.5px solid rgb(98, 98, 98);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  width: 130px;
+  text-align: center;
+  transition: 0.2s linear;
+}
+
+
+.button-secondary:hover{
+  background-color: #707070;
+  box-shadow: 0 6px 8px 4px rgba(0,0,0,0.5);
+  transition: 0.2s linear;
+}
+
+.button-tertiary{
+  background-color: white;
+  color: black;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 0.5px solid rgb(98, 98, 98);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  width: 130px;
+  text-align: center;
+  transition: 0.2s linear;
+}
+
+
+.button-tertiary:hover{
+  background-color: rgb(246, 246, 246);
+  box-shadow: 0 6px 8px 4px rgba(0,0,0,0.5);
+  transition: 0.2s linear;
 }
