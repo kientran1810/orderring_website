@@ -1,11 +1,14 @@
 import {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../App.js';
 import '../App.css'; 
 import './AboutUs.css';
 import './ReviewBox.js';
 import resources from '../resources/en.json';
 import ReviewBox from './ReviewBox.js';
+import Order from '../Order_Page/Order.js';
 
-function AboutUs(){
+function AboutUs({chooseActiveTab}){
     const reviews =[
         {
             title: "Classic Brew - A Perfect Start to the Day",
@@ -26,12 +29,19 @@ function AboutUs(){
             userName: "Jane Smith"
           }
     ]
+
+    const navigate = useNavigate();
+
+    const handleOrderNowClick = () => {
+        chooseActiveTab("Order");
+        navigate("/order");
+    };
     return (
       <>
         <section className="brandIntroSection grid grid-cols-12 m-4">
             <section className="brandStatementArea col-span-6">
                 <p className="statement brandStatement text-4xl m-4">{resources.brandStatement}</p>
-                <button className='button-primary centerButton'>Order Now</button>
+                <button className='button-primary centerButton' onClick={()=>handleOrderNowClick()}>Order Now</button>
             </section>
             <section className="productPicArea col-span-5">
                 <img src="/aha_logo/aha_logo_brown.png" alt="Art Coffee Picture" className="productPic"/>
@@ -78,7 +88,7 @@ function AboutUs(){
             </div>
         </section>
 
-        <button className='button-primary justify-self-center m-4'>Menu</button>
+        <button className='button-primary justify-self-center m-4' onClick={handleOrderNowClick}>Menu</button>
         {/* review section */}
         <section className='reviewSecIntro'>
             <h1 className='statement text-2xl m-4'>{resources.reviews}</h1>

@@ -14,7 +14,11 @@ function ContactUs(){
 }
 
 function App() {
-  const [tab, setTab]=useState("aboutUs");
+  const [activeTab, setActiveTab]=useState("AboutUs");
+
+  const chooseActiveTab=(activeTab)=>{
+    setActiveTab(activeTab);
+  }
   return (
     <>
       <Router>
@@ -26,16 +30,16 @@ function App() {
                 <h1 id='cafeName' className="text-3xl m-2">Aha Cafe</h1>
               </div>
               <ul className='text-xl'>
-                <li><Link to="/about-us">About Us</Link></li>
-                <li><Link to="/order">Order</Link></li>
-                <li><Link to="/settings">Settings</Link></li>
+                <li onClick={()=>chooseActiveTab("AboutUs")} className={activeTab === "AboutUs" ? "active" : "" }><Link to="/about-us">About Us</Link></li>
+                <li onClick={()=>chooseActiveTab("Order")} className={activeTab === "Order" ? "active":""}><Link to="/order">Order</Link></li>
+                <li onClick={()=>chooseActiveTab("Settings")} className={activeTab === "Settings" ? "active" : ""}><Link to="/settings">Settings</Link></li>
                 <li className="button-primary "><Link to="/contact-us">Contact Us</Link></li>
               </ul>
             </nav>
           </header>
           <main>
             <Routes>
-              <Route path="/about-us" element={<AboutUs/>}/>
+              <Route path="/about-us" element={<AboutUs chooseActiveTab={chooseActiveTab}/>}/>
               <Route path="/order" element={<Order/>}/>
               <Route path="/settings" element={<Settings/>}/>
               <Route path="/contact-us" element={<ContactUs/>}/>

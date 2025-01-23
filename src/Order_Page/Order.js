@@ -257,12 +257,58 @@ function Order(){
             )
         }
     }
-    
+    // Order board
+    // const [orderList, setOrderList] = useState({});
 
+    // const addOrder=(orderItem)=>{
+    //     return(
+    //         setOrderList(prevOrderItem =>({
+    //             ...prevOrderItem,
+
+    //         }))
+    //     )
+    // }
+    const [orderList, setOrderList]=useState({})
+
+
+
+    const addToOrder=(itemName, quantities)=>{
+        if(!orderList[itemName]) {
+            setOrderList(prevOrderList => ({
+                ...prevOrderList,
+                [itemName]: quantities[itemName]
+            }));
+            setQuantities(prevQuantities => (
+                {
+                    ...prevQuantities,
+                    [itemName]: 0
+                }
+            ));
+        }else{
+            setOrderList(prevOrderList => ({
+                ...prevOrderList,
+                [itemName]: (prevOrderList[itemName] + quantities[itemName])
+            }));
+            setQuantities(prevQuantities => (
+                {
+                    ...prevQuantities,
+                    [itemName]: 0
+                }
+            ));
+        }
+    }
+
+    const removeOrder=(itemName)=>{
+        setOrderList(prevOrderList =>{
+           const {[itemName]:_, ...rest} = prevOrderList;
+           return rest;
+        })
+    }
+    
     return(
         <div>
             <div className="orderBg grid grid-cols-18">
-                <section className='col col-span-6 categoryBoard'>
+                <section className='col-span-6 categoryBoard'>
                     <div className='title text-2xl m-4'>Category</div>
                     <div className='ml-4 mb-4 mr-4'>
                     {categories.map(
@@ -274,7 +320,7 @@ function Order(){
                     </div>
                     
                 </section>
-                <section className='col col-span-6 itemBoard'>
+                <section className='col-span-6 itemBoard'>
                     <input type="text" id="itemSearch" placeholder='Search...' title="Type in an item" className="text-xl searchBar mt-4 mb-2 p-2 border-2 border-slate-200 rounded w-full" onChange={handleSearchChange}></input>
                     <div>
                         {
@@ -293,7 +339,7 @@ function Order(){
                                                 <div className='m-4 text-lg'>{quantities[item.name]||0}</div>
                                                 <button className='quantity-button menuPageButton w-8 h-8 text-white text-lg' onClick={()=>subtract(item.name)}>-</button>
                                             </div>
-                                            <div className='text-center content-center justify-items-center col-span-1'><button className='menuPageButton addButton '>Add</button></div>
+                                            <div className='text-center content-center justify-items-center col-span-1'><button className='menuPageButton addButton' onClick={() => addToOrder(item.name, quantities)}>Add</button></div>
                                         </li>)
                                     }
                                 </ul>
@@ -302,9 +348,26 @@ function Order(){
                         }
                     </div>
                 </section>
-                <section className='col col-span-6 categoryBoard orderBoard'>
-                    <h1 className='title text-2xl m-4 flex'>Order</h1>
-                    <div className='text-center justify-items-center m-4'><button className='menuPageButton orderButton '>Order</button></div>
+                <section className='col-span-6 categoryBoard orderBoard'>
+                    <h1 className='title text-2xl m-4'>Order</h1>
+                    <div className='orderList'>
+                        <ul className=''>
+                            {Object.keys(orderList).map(
+                                item => orderList[item] > 0 &&
+                                    <li key={item} className='flex ml-1 mb-2 mr-1 items-baseline grid grid-cols-12 justify-around'>
+                                        <span className='col-span-7'>{item}</span>
+                                        <span className='col-span-1'> - </span>
+                                        <span className='col-span-1'>{orderList[item]}</span>
+                                        <span className='col-span-3 justify-end'>
+                                            <button className='removeButton' onClick={()=>removeOrder(item)}>Remove</button>
+                                        </span>
+                                    </li>
+                            )}
+                        </ul>
+                    </div>
+                    <div className='flex text-center justify-center m-4'>
+                        <button className='orderButton'>Order</button>
+                    </div>
                 </section>
             </div>
         </div>
